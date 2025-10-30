@@ -1,114 +1,72 @@
-# MovieFlix
+# 🚀 Cadastro de Funcionários
 
-API REST para gerenciamento de catálogo de filmes e serviços de streaming, desenvolvida com Spring Boot e arquitetura moderna.
+Um sistema completo de gerenciamento de funcionários e cargos, construído com Spring Boot. O projeto expõe tanto uma **API RESTful** documentada com Swagger quanto uma **Interface Web** renderizada com Thymeleaf.
 
-Sobre o Projeto
-O Flix é uma plataforma que permite aos usuários descobrir filmes disponíveis em diferentes serviços de streaming. O projeto foi desenvolvido com foco em:
+Este projeto foi desenvolvido como um sistema robusto para demonstrar habilidades de backend, incluindo arquitetura de microsserviços, manipulação de banco de dados, containerização com Docker e documentação de API.
 
-Organização de Conteúdo: Categorização eficiente de filmes
-Múltiplos Serviços: Integração com diversos serviços de streaming
-Segurança: Autenticação JWT para proteção dos endpoints
-Performance: Queries otimizadas e cache para melhor desempenho
-Escalabilidade: Arquitetura preparada para crescimento
-Arquitetura
-O projeto segue uma arquitetura em camadas:
+---
 
-src/main/java/dev/flix/
-├── config/         # Configurações do Spring e Security
-├── controller/     # Controllers REST
-├── entity/         # Entidades JPA
-├── repository/     # Repositórios Spring Data
-├── service/        # Regras de negócio
-├── exception/      # Exceções customizadas
-└── mapper/         # Conversão entre DTOs e entidades
-Tecnologias Utilizadas
-Backend
-Java 17: Versão LTS com recursos modernos da linguagem
-Spring Boot 3: Framework para desenvolvimento ágil
-Spring Security: Segurança e autenticação
-Spring Data JPA: Persistência de dados
-JWT: Tokens para autenticação stateless
-Lombok: Redução de boilerplate code
-Bean Validation: Validação de dados
-Banco de Dados
-PostgreSQL 15: Banco de dados relacional robusto
-Flyway: Migrations para controle do schema
-Ferramentas de Desenvolvimento
-Maven: Gerenciamento de dependências e build
-JUnit 5: Testes unitários
-Mockito: Mocking para testes
-Swagger/OpenAPI: Documentação da API
-Funcionalidades
-Autenticação e Autorização
-Sistema de registro e login de usuários
-Autenticação via JWT
-Proteção de rotas por perfil de usuário
-Gerenciamento de Categorias
-CRUD completo de categorias de filmes
-Validação de dados
-Tratamento de dependências
-Serviços de Streaming
-Cadastro e gestão de provedores
-Associação com filmes
-Validações de integridade
-Catálogo de Filmes
-Cadastro detalhado de filmes
-Busca por múltiplos critérios
-Associação com categorias e serviços
-Sistema de avaliação
-Pré-requisitos
-Java 17+
-PostgreSQL 15+
-Maven 3.8+
-Curl (para testes via scripts)
-Como Executar
-O projeto inclui scripts para facilitar o build e a execução:
+## ✨ Funcionalidades Principais
 
-Scripts Disponíveis
-build.sh: Compila o projeto e gera o arquivo JAR
-start.sh: Inicia a aplicação usando o JAR gerado
-Passo a Passo
-Clone o repositório
-git clone [url-do-repositorio]
-Configure o banco de dados PostgreSQL no arquivo application.properties:
-spring.datasource.url=jdbc:postgresql://localhost:5432/flix
-spring.datasource.username=seu_usuario
-spring.datasource.password=sua_senha
-Execute o build do projeto:
-./build.sh
-Inicie a aplicação:
-./start.sh
-Alternativamente, você pode executar manualmente:
+O sistema permite o gerenciamento completo de duas entidades principais: **Funcionários** e **Cargos**.
 
-# Build manual
-mvn clean package
+* **API REST (em `/funcionarios` e `/cargos`):**
+    * `GET /listar`: Lista todas as entidades.
+    * `GET /listar/{id}`: Busca uma entidade por ID.
+    * `POST /criar`: Cadastra uma nova entidade.
+    * `PUT /alterar/{id}`: Altera uma entidade existente.
+    * `DELETE /deletar/{id}`: Remove uma entidade.
+* **Interface Web (em `/funcionarios/ui` e `/cargos/ui`):**
+    * Interface visual para listar, criar, alterar e deletar funcionários e cargos.
+    * Página de detalhes para cada funcionário.
+    * Formulários dinâmicos que servem tanto para criação quanto para alteração.
+* **Arquitetura:**
+    * Uso do padrão **DTO (Data Transfer Object)** e **Mappers** para separar as entidades de banco de dados (`Model`) dos dados expostos na API e na UI.
+    * Separação clara de responsabilidades entre Controllers, Services e Repositories.
+* **Banco de Dados:**
+    * Gerenciamento de migrações de banco de dados usando **Flyway**.
+    * Configurado para rodar com **MySQL** em ambiente de produção (Docker) e **H2** em ambiente de testes.
 
-# Execução manual
-mvn spring-boot:run
-A API estará disponível em http://localhost:8080
+---
 
-Documentação da API
-Scripts de Teste
-Para testar a API, foram disponibilizados scripts curl organizados por funcionalidade. Consulte a documentação dos scripts para mais detalhes.
+## 🛠️ Tecnologias Utilizadas
 
-Endpoints
-Autenticação
-POST /auth/register - Registrar novo usuário
-POST /auth/login - Login de usuário
-Categorias
-POST /flix/category - Criar categoria
-GET /flix/category - Listar categorias
-GET /flix/category/{id} - Buscar categoria por ID
-DELETE /flix/category/{id} - Deletar categoria
-Serviços de Streaming
-POST /flix/stream-service - Criar serviço
-GET /flix/stream-service - Listar serviços
-GET /flix/stream-service/{id} - Buscar serviço por ID
-DELETE /flix/stream-service/{id} - Deletar serviço
-Filmes
-POST /flix/movie - Criar filme
-GET /flix/movie - Listar filmes
-GET /flix/movie/{id} - Buscar filme por ID
-GET /flix/movie/search?category={id} - Buscar filmes por categoria
-PUT /flix/movie - Atualizar filme
-DELETE /flix/movie/{id} - Deletar filme
+Este projeto utiliza um stack moderno e robusto:
+
+* **Linguagem:** Java 17
+* **Framework:** Spring Boot 3
+* **Dados:** Spring Data JPA (Hibernate)
+* **Banco de Dados:** MySQL (via Docker)
+* **Banco de Testes:** H2 (em memória)
+* **Migrações:** Flyway
+* **API:** Spring Web (REST Controllers)
+* **Interface Web (UI):** Thymeleaf
+* **Documentação da API:** SpringDoc (Swagger)
+* **Containerização:** Docker
+* **Build:** Apache Maven
+* **Utilitários:** Lombok
+
+---
+
+## 🏁 Como Executar o Projeto
+
+Existem duas formas de executar a aplicação: localmente (via IntelliJ/Maven) ou via Docker.
+
+### 1. Executando Localmente (Desenvolvimento)
+
+**Pré-requisitos:**
+* JDK 17 (ou superior)
+* Maven 3.8 (ou superior)
+* Docker Desktop (ou Docker Engine)
+
+#### Passo 1: Iniciar o Banco de Dados MySQL
+Este projeto precisa de um banco de dados MySQL rodando. Use o comando Docker abaixo para iniciar um contêiner MySQL pré-configurado:
+
+```bash
+docker run -d -p 3306:3306 --name mysql-funcionarios \
+  -v cadastro-db-volume:/var/lib/mysql \
+  -e MYSQL_ROOT_PASSWORD=sua-senha-root-segura \
+  -e MYSQL_DATABASE=db_funcionarios \
+  -e MYSQL_USER=admin_app \
+  -e MYSQL_PASSWORD=senha_app \
+  mysql
