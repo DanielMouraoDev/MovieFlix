@@ -1,45 +1,34 @@
-# 🚀 Sistema de Cadastro de Funcionários
+# 🚀 API Flix - Catálogo de Streaming
 
-![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 ![Java](https://img.shields.io/badge/Java-17-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white)
-![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.x-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-15-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![JWT](https://img.shields.io/badge/JWT-Autenticação-D63AFF?style=for-the-badge&logo=jsonwebtokens&logoColor=white)
 
-Um projeto full-stack (API + Web UI) para gerenciamento de funcionários e seus respectivos cargos, construído com as tecnologias mais modernas do ecossistema Spring.
-
----
+API RESTful para gerenciamento de um catálogo de filmes e serviços de streaming, desenvolvida com Spring Boot, Spring Security (JWT) e PostgreSQL.
 
 ## ✨ Funcionalidades
 
-* **API RESTful Completa:** Gerenciamento total (CRUD) para `Funcionários` e `Cargos`.
-* **Interface Web (UI):** Páginas em Thymeleaf para listar, criar, alterar e deletar registros de forma visual.
-* **Documentação Interativa:** API 100% documentada com Swagger/SpringDoc.
-* **Migrações de Banco:** Versionamento de banco de dados robusto usando Flyway.
-* **Containerização:** Aplicação e banco de dados prontos para rodar em containers Docker.
+* **Autenticação:** Registro e Login de usuários com tokens JWT.
+* **Gerenciamento:** CRUD completo para Filmes, Categorias e Serviços de Streaming.
+* **Documentação:** API 100% documentada com Swagger/OpenAPI.
+* **Banco de Dados:** Versionamento de schema com Flyway.
 
-## 🛠️ Stack Tecnológico
+## 🛠️ Tecnologias
 
-* **Backend:** Java 17, Spring Boot
-* **Dados:** Spring Data JPA (Hibernate)
-* **Banco de Dados:** MySQL (e H2 para testes)
-* **Interface:** Thymeleaf & CSS
-* **Ferramentas:** Maven, Docker, Lombok
-* **API Doc:** Swagger (SpringDoc OpenAPI 3)
+* Java 17
+* Spring Boot 3
+* Spring Security / JWT
+* Spring Data JPA
+* PostgreSQL 15
+* Flyway
+* Maven
+* Lombok
+* Swagger (SpringDoc)
 
----
+## 🏁 Como Executar
 
-## 🏁 Como Executar o Projeto
-
-A forma mais fácil de rodar este projeto é com Docker e um arquivo `.env`.
-
-### 1. Inicie o Banco de Dados
-Este projeto precisa de um banco de dados MySQL. Use o comando Docker abaixo para iniciar um contêiner pré-configurado:
-
+**1. Clone o projeto:**
 ```bash
-docker run -d -p 3306:3306 --name mysql-funcionarios \
-  -v cadastro-db-volume:/var/lib/mysql \
-  -e MYSQL_ROOT_PASSWORD=sua-senha-root-segura \
-  -e MYSQL_DATABASE=db_funcionarios \
-  -e MYSQL_USER=admin_app \
-  -e MYSQL_PASSWORD=senha_app \
-  mysql
+git clone [url-do-repositorio]
+cd [nome-do-repositorio]
