@@ -26,9 +26,3 @@ API RESTful para gerenciamento de um catálogo de filmes e serviços de streamin
 * Lombok
 * Swagger (SpringDoc)
 
-## 🏁 Como Executar
-
-**1. Clone o projeto:**
-```bash
-git clone [url-do-repositorio]
-cd [nome-do-repositorio]
