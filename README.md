@@ -20,7 +20,7 @@ API RESTful para gerenciamento de um catálogo de filmes e serviços de streamin
 * Spring Boot 3
 * Spring Security / JWT
 * Spring Data JPA
-* PostgreSQL 15
+* PostgreSQL 16
 * Flyway
 * Maven
 * Lombok
