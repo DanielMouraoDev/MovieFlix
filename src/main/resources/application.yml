@@ -1,6 +1,6 @@
 spring:
   application:
-    name: movieflix
+    name: Movieflix
 
   datasource:
     url: jdbc:postgresql://localhost:5432/movieflix
