@@ -1,4 +1,4 @@
-package com.MovieFlix.movieflix.Controller.Request;
+package com.MovieFlix.movieflix.Category.Controller.Request;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.MovieFlix.movieflix.Entity;
+package com.MovieFlix.movieflix.Category.Controller.Entity;
 
 import jakarta.persistence.*;
 import lombok.*;

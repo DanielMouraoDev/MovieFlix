@@ -1,8 +1,8 @@
-package com.MovieFlix.movieflix.Mapper;
+package com.MovieFlix.movieflix.Category.Controller.Mapper;
 
-import com.MovieFlix.movieflix.Controller.Request.categoryRequest;
-import com.MovieFlix.movieflix.Controller.Response.categoryResponse;
-import com.MovieFlix.movieflix.Entity.category;
+import com.MovieFlix.movieflix.Category.Controller.Request.categoryRequest;
+import com.MovieFlix.movieflix.Category.Controller.Response.categoryResponse;
+import com.MovieFlix.movieflix.Category.Controller.Entity.category;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

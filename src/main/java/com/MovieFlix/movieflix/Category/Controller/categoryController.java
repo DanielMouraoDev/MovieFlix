@@ -1,17 +1,16 @@
-package com.MovieFlix.movieflix.Controller;
+package com.MovieFlix.movieflix.Category.Controller;
 
-import com.MovieFlix.movieflix.Controller.Request.categoryRequest;
-import com.MovieFlix.movieflix.Controller.Response.categoryResponse;
-import com.MovieFlix.movieflix.Entity.category;
-import com.MovieFlix.movieflix.Mapper.categoryMapper;
-import com.MovieFlix.movieflix.Service.categoryService;
+import com.MovieFlix.movieflix.Category.Controller.Request.categoryRequest;
+import com.MovieFlix.movieflix.Category.Controller.Response.categoryResponse;
+import com.MovieFlix.movieflix.Category.Controller.Entity.category;
+import com.MovieFlix.movieflix.Category.Controller.Mapper.categoryMapper;
+import com.MovieFlix.movieflix.Category.Controller.Service.categoryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.http.HttpStatus;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/movieflix/category")

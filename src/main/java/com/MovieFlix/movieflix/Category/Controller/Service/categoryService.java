@@ -1,7 +1,7 @@
-package com.MovieFlix.movieflix.Service;
+package com.MovieFlix.movieflix.Category.Controller.Service;
 
-import com.MovieFlix.movieflix.Entity.category;
-import com.MovieFlix.movieflix.Repository.categoryRepository;
+import com.MovieFlix.movieflix.Category.Controller.Entity.category;
+import com.MovieFlix.movieflix.Category.Controller.Repository.categoryRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
