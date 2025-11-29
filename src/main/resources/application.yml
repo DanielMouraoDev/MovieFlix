@@ -1,17 +1,18 @@
 spring:
   application:
-    name: Movieflix
+    name: MovieFlix
 
   datasource:
-    url: jdbc:postgresql://localhost:5432/movieflix
-    username: postgres
-    password: postgres
-    driver-class-name: org.postgresql.Driver
+    url: jdbc:mysql://localhost:3306/movieflix?createDatabaseIfNotExist=true&serverTimezone=UTC
+    username: root
+    password: 3649Dd109@
+    driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    database-platform: org.hibernate.dialect.MySQLDialect
     show-sql: true
+    hibernate:
+      ddl-auto: update
 
   flyway:
-    enabled: true
-
+    enabled: false
