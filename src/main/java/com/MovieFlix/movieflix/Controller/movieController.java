@@ -19,8 +19,17 @@ public class movieController {
 
     private final movieService movieService;
 
+    @PostMapping
+    public ResponseEntity<movieResponse> saveMovie(@RequestBody movieRequest request) {
+        movie movieEntity = movieMapper.toMovie(request);
+        movie savedMovie = movieService.saveMovie(movieEntity);
+
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(movieMapper.toMovieResponse(savedMovie));
+    }
+
     @GetMapping
-    public ResponseEntity<List<movieResponse>> getAllMovies() {
+    public ResponseEntity<List<movieResponse>> findAll() {
         List<movieResponse> movies = movieService.findAll()
                 .stream()
                 .map(movieMapper::toMovieResponse)
@@ -29,26 +38,34 @@ public class movieController {
         return ResponseEntity.ok(movies);
     }
 
-    @PostMapping
-    public ResponseEntity<movieResponse> saveMovie(@RequestBody movieRequest request) {
-        movie newMovie = movieMapper.toMovie(request);
-
-        movie savedMovie = movieService.saveMovie(newMovie);
-
-        return ResponseEntity.status(HttpStatus.CREATED)
-                .body(movieMapper.toMovieResponse(savedMovie));
-    }
-
     @GetMapping("/{id}")
-    public ResponseEntity<movieResponse> getMovieById(@PathVariable Long id) {
+    public ResponseEntity<movieResponse> findById(@PathVariable Long id) {
         return movieService.findById(id)
                 .map(movie -> ResponseEntity.ok(movieMapper.toMovieResponse(movie)))
                 .orElse(ResponseEntity.notFound().build());
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<movieResponse> update(@PathVariable Long id, @RequestBody movieRequest request) {
+        movie movieToUpdate = movieMapper.toMovie(request);
+        return movieService.update(id, movieToUpdate)
+                .map(updatedMovie -> ResponseEntity.ok(movieMapper.toMovieResponse(updatedMovie)))
+                .orElse(ResponseEntity.notFound().build());
+    }
+
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMovieById(@PathVariable Long id) {
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
         movieService.deleteMovie(id);
-        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/search")
+    public ResponseEntity<List<movieResponse>> findByCategories(@RequestParam Long category) {
+        List<movieResponse> movies = movieService.findByCategory(category)
+                .stream()
+                .map(movieMapper::toMovieResponse)
+                .toList();
+
+        return ResponseEntity.ok(movies);
     }
 }

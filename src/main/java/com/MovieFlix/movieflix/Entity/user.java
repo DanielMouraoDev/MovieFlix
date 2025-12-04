@@ -9,13 +9,20 @@ import lombok.*;
 @Getter
 @Setter
 @Entity
-@Table (name = "streaming")
-public class streaming {
+@Table(name = "User")
+public class user {
 
+    public user build;
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(length = 100, nullable = false)
+    @Column(nullable = false)
     private String name;
+
+    @Column(nullable = false)
+    private String email;
+
+    @Column(nullable = false)
+    private String password;
 }

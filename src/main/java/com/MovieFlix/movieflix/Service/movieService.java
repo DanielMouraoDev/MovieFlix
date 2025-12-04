@@ -4,6 +4,7 @@ import com.MovieFlix.movieflix.Entity.category;
 import com.MovieFlix.movieflix.Entity.movie;
 import com.MovieFlix.movieflix.Entity.streaming;
 import com.MovieFlix.movieflix.Repository.movieRepository;
+// REMOVA A LINHA: import jdk.jfr.Category;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -26,11 +27,42 @@ public class movieService {
     }
 
     public List<movie> findAll() {
-        return movieRepository.findAll();
+        return movieRepository.findTop5ByOrderByRatingDesc();
+    }
+
+    public List<movie> findByCategory(Long categoryId) {
+        category categorySearch = new category();
+        categorySearch.setId(categoryId);
+        return movieRepository.findMovieByCategories(List.of(categorySearch));
     }
 
     public Optional<movie> findById(Long id) {
         return movieRepository.findById(id);
+    }
+
+    public Optional<movie> update(Long movieID, movie updateMovie) {
+        Optional<movie> optionalMovie = movieRepository.findById(movieID);
+        if (optionalMovie.isPresent()) {
+
+            List<category> categories = this.findCategories(updateMovie.getCategories());
+            List<streaming> streamings = this.findStreamings(updateMovie.getStreamings());
+
+            movie movie = optionalMovie.get();
+            movie.setTitle(updateMovie.getTitle());
+            movie.setDescription(updateMovie.getDescription());
+            movie.setReleaseDate(updateMovie.getReleaseDate());
+            movie.setRating(updateMovie.getRating());
+
+            movie.getCategories().clear();
+            movie.getCategories().addAll(categories);
+
+            movie.getStreamings().clear();
+            movie.getStreamings().addAll(streamings);
+
+            movieRepository.save(movie);
+            return Optional.of(movie);
+        }
+        return Optional.empty();
     }
 
     public void deleteMovie(Long id) {

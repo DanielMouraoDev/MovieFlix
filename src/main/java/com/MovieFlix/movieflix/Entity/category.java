@@ -10,7 +10,7 @@ import lombok.*;
 @Table(name = "category")
 @Getter
 @Setter
-public class category { // Classe em minúsculo
+public class category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

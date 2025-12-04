@@ -1,4 +1,4 @@
 package com.MovieFlix.movieflix;
-public class filmesModel {
+public class movieModel {
 
 }
