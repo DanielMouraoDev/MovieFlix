@@ -11,7 +11,7 @@ public class categoryMapper {
     public static category toCategory(categoryRequest categoryRequest) {
         return category
                 .builder()
-                .name(categoryRequest.getName())
+                .name(categoryRequest.name())
                 .build();
     }
 

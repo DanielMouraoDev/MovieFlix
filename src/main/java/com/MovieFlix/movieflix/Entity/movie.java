@@ -46,7 +46,7 @@ public class movie {
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "category_id")
     )
-    private List<category> categories; // Importante: Usa a SUA entidade 'category'
+    private List<category> categories;
 
     @ManyToMany
     @JoinTable(
