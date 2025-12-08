@@ -27,18 +27,6 @@ public class securityConfig {
                 )
                 .build();
     }
-
-    @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http
-                .csrf(csrf -> csrf.disable())
-                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(authorize -> authorize
-                        .requestMatchers(HttpMethod.GET, "/movieflix/category").permitAll()
-                        .anyRequest().authenticated()
-                )
-                .build();
-    }
 }
 
 

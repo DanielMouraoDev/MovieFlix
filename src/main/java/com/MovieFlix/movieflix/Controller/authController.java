@@ -1,5 +1,6 @@
 package com.MovieFlix.movieflix.Controller;
 
+import com.MovieFlix.movieflix.Controller.Request.loginRequest;
 import com.MovieFlix.movieflix.Controller.Request.userRequest;
 import com.MovieFlix.movieflix.Entity.user;
 import com.MovieFlix.movieflix.Mapper.userMapper;
@@ -25,4 +26,8 @@ public class authController {
         return ResponseEntity.status(HttpStatus.CREATED)
                 .body(userMapper.toUserResponse(savedUser));
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody loginRequest request) {
+
 }
